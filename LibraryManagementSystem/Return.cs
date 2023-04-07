@@ -56,14 +56,14 @@ namespace LMS
         
         private void borrowerName()
         {
-            string query = "Select borrowerName from Lend";
+            string query = "Select borrowerName, bookName from Lend";
             cmd = new SqlCommand(query, cn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                /*string demo = rdr[0]+" - "+rdr[1];
-                borrowerNameComboBox.Items.Add(demo);*/
-                borrowerNameComboBox.Items.Add(rdr[0].ToString());
+                string demo = rdr[0]+" - "+rdr[1];
+                borrowerNameComboBox.Items.Add(demo);
+                //borrowerNameComboBox.Items.Add(rdr[0].ToString());
             }
             rdr.Close();
 
@@ -71,12 +71,16 @@ namespace LMS
         
         private void bookOperation()
         {
-            string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
+            // Initially " - " was added to show better result and now it is removed again.
+            var splitedtext = borrowerNameComboBox.SelectedItem.ToString().Split('-');
+            string a = splitedtext[0].Trim();
+
+            //string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
             string booksName = null;
             string booksCount = null;
             string borrowedDate = null;
             //string id = null;
-            string query = "select bookname, noOfBooks, fromDate from Lend where borrowerName='"+borrowerName+"'";
+            string query = "select bookname, noOfBooks, fromDate from Lend where borrowerName='"+a+"'";
             cmd = new SqlCommand(query, cn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
