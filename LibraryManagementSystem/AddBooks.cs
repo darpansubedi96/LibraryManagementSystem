@@ -36,11 +36,14 @@ namespace LibraryManagementSystem
 
         private void saveBook_Click(object sender, EventArgs e)
         {
-            if (booksNameTextbox.Text != string.Empty || booksAuthorTextBox.Text != string.Empty ||
-                bookCountTextBox.Text != string.Empty || bookCategoryDropDown.SelectedIndex == -1)
+            if (booksNameTextbox.Text == string.Empty || booksAuthorTextBox.Text == string.Empty ||
+                bookCountTextBox.Text == string.Empty || bookCategoryDropDown.SelectedIndex == -1)
+                {
+                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 cmd = new SqlCommand("select * from Books where name = '" + booksNameTextbox.Text + "' and author = '" + booksAuthorTextBox.Text + "'  and category = '" + bookCategoryDropDown.Text + "'", cn);
-                //cmd = new SqlCommand("select * from Books where username='" + regUsernameTextBox.Text + "'", cn);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())  // validate from table
                 {
@@ -59,10 +62,6 @@ namespace LibraryManagementSystem
                     MessageBox.Show("Book data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Refresh();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

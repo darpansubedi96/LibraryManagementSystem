@@ -76,7 +76,7 @@
             // 
             this.returnDateTimePicker.Location = new System.Drawing.Point(121, 84);
             this.returnDateTimePicker.Name = "returnDateTimePicker";
-            this.returnDateTimePicker.Size = new System.Drawing.Size(135, 19);
+            this.returnDateTimePicker.Size = new System.Drawing.Size(164, 19);
             this.returnDateTimePicker.TabIndex = 5;
             // 
             // submit
@@ -106,7 +106,7 @@
             this.borrowerNameComboBox.FormattingEnabled = true;
             this.borrowerNameComboBox.Location = new System.Drawing.Point(121, 121);
             this.borrowerNameComboBox.Name = "borrowerNameComboBox";
-            this.borrowerNameComboBox.Size = new System.Drawing.Size(135, 20);
+            this.borrowerNameComboBox.Size = new System.Drawing.Size(164, 20);
             this.borrowerNameComboBox.TabIndex = 9;
             this.borrowerNameComboBox.Text = "Select a name";
             this.borrowerNameComboBox.SelectedIndexChanged += new System.EventHandler(this.borrowerNameComboBox_SelectedIndexChanged);
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 450);
+            this.ClientSize = new System.Drawing.Size(320, 450);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);

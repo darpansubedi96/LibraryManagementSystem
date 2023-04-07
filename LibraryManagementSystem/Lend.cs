@@ -18,42 +18,50 @@ namespace LMS
 
         private void lendButton_Click(object sender, EventArgs e)
         {
-            //check if all data are instered or not  -- garna baki xa
-
-            string requiredBookName = bookNameComboBox.SelectedItem.ToString();
-            string requiredNoOfBooks = noOfBooksTextBox.Text;
-            int requiredNoOfBooksInt = Convert.ToInt32(requiredNoOfBooks);
-            int availableNoOfBooks = 0;
-            cn = new SqlConnection(connectionString);
-            cn.Open();
-            cmd = new SqlCommand("SELECT count FROM Books b WHERE b.name ='"+requiredBookName+"'", cn);
-            dr = cmd.ExecuteReader();
-            while(dr.Read())
+            
+            if (borrowerNameComboBox.SelectedIndex == -1 || bookNameComboBox.SelectedIndex == -1 || noOfBooksTextBox.Text == string.Empty)
             {
-                availableNoOfBooks = Convert.ToInt32(dr.GetValue(0).ToString()); //number of books available in library
+                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            dr.Close();
-            if (availableNoOfBooks >0 && requiredNoOfBooksInt > 0)  
+            else
             {
-                if (availableNoOfBooks >= requiredNoOfBooksInt)
+                string requiredBookName = bookNameComboBox.SelectedItem.ToString();
+                string requiredNoOfBooks = noOfBooksTextBox.Text;
+                int requiredNoOfBooksInt = Convert.ToInt32(requiredNoOfBooks);
+                int availableNoOfBooks = 0;
+                cn = new SqlConnection(connectionString);
+                cn.Open();
+                cmd = new SqlCommand("SELECT count FROM Books b WHERE b.name ='" + requiredBookName + "'", cn);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
-                    string fromDate1 = borrowDateTimePicker.Text;
-                    cmd = new SqlCommand("INSERT INTO Lend (borrowerName, bookName, fromDate, noOfBooks) VALUES('" + borrowerName + "', '" + requiredBookName + "', '" + fromDate1 + "', '" + requiredNoOfBooks + "');", cn);
+                    availableNoOfBooks = Convert.ToInt32(dr.GetValue(0).ToString()); //number of books available in library
+                }
+                dr.Close();
+                if (availableNoOfBooks > 0 && requiredNoOfBooksInt > 0)
+                {
+                    if (availableNoOfBooks >= requiredNoOfBooksInt)
+                    {
+                        string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
+                        string fromDate1 = borrowDateTimePicker.Text;
+                        cmd = new SqlCommand("INSERT INTO Lend (borrowerName, bookName, fromDate, noOfBooks) VALUES('" + borrowerName + "', '" + requiredBookName + "', '" + fromDate1 + "', '" + requiredNoOfBooks + "');", cn);
 
-                    cmd.ExecuteNonQuery();
-                    countOperation(requiredBookName, availableNoOfBooks, requiredNoOfBooksInt);
-                    MessageBox.Show("Book borrowed successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                        cmd.ExecuteNonQuery();
+                        countOperation(requiredBookName, availableNoOfBooks, requiredNoOfBooksInt);
+                        MessageBox.Show("Book borrowed successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Required number is greter than available", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Required number is greter than available", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Book not available.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            } 
-            else{
-                MessageBox.Show("Book not available.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
         }
         private void countOperation(string bookName, int bookCount, int noOfBooks)
         {

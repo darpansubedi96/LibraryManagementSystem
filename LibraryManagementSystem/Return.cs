@@ -22,22 +22,29 @@ namespace LMS
 
         private void submit_Click(object sender, EventArgs e)
         {
-            //add count to Books table
-            string borrowername = borrowerNameComboBox.SelectedItem.ToString();
-            string bookName = label8.Text;
-            string count = label9.Text;
+            if (borrowerNameComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select returner name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //add count to Books table
+                string borrowername = borrowerNameComboBox.SelectedItem.ToString();
+                string bookName = label8.Text;
+                string count = label9.Text;
 
-            string query = "Update Books set count = count +" + count + " where id IN (select b.id from Books b inner join Lend l on b.name = l.bookName where l.bookName = '" + bookName + "')";
-            cmd = new SqlCommand(query,cn);
-            cmd.ExecuteNonQuery();
+                string query = "Update Books set count = count +" + count + " where id IN (select b.id from Books b inner join Lend l on b.name = l.bookName where l.bookName = '" + bookName + "')";
+                cmd = new SqlCommand(query, cn);
+                cmd.ExecuteNonQuery();
 
-            // delete from Lend table
-            string query1 = "Delete from Lend where borrowerName= '"+borrowername+"' and bookName= '"+bookName+"' and noOfBooks= '"+count+"'";
-            cmd = new SqlCommand(@query1,cn);
-            cmd.ExecuteNonQuery();
+                // delete from Lend table
+                string query1 = "Delete from Lend where borrowerName= '" + borrowername + "' and bookName= '" + bookName + "' and noOfBooks= '" + count + "'";
+                cmd = new SqlCommand(@query1, cn);
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Book received successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+                MessageBox.Show("Book received successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
         }
 
         private void Return_Load(object sender, EventArgs e)
@@ -54,6 +61,8 @@ namespace LMS
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                /*string demo = rdr[0]+" - "+rdr[1];
+                borrowerNameComboBox.Items.Add(demo);*/
                 borrowerNameComboBox.Items.Add(rdr[0].ToString());
             }
             rdr.Close();
