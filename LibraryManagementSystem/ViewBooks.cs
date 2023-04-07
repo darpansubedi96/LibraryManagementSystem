@@ -16,6 +16,7 @@ namespace LibraryManagementSystem
     public partial class ViewBooks : Form
     {
         SqlConnection cn;
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
         public ViewBooks()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace LibraryManagementSystem
 
         private void ViewBooks_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
+            cn = new SqlConnection(connectionString);
             cn.Open();
             SqlCommand comm = new SqlCommand("Select * From Books b  ORDER BY b.name", cn);
             using (SqlDataReader read = comm.ExecuteReader())
@@ -62,7 +63,7 @@ namespace LibraryManagementSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string columnName = this.dataGridView1.Columns[e.ColumnIndex].Name;
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
+            cn = new SqlConnection(connectionString);
             cn.Open();
             int id = Convert.ToInt32(this.dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             if (id > 0)

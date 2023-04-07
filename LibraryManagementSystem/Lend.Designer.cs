@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.borrowerNameTextBox = new System.Windows.Forms.TextBox();
             this.borrowDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.bookNameComboBox = new System.Windows.Forms.ComboBox();
             this.lendButton = new System.Windows.Forms.Button();
@@ -41,12 +40,13 @@
             this.CancleButton = new System.Windows.Forms.Button();
             this.lms = new System.Windows.Forms.Label();
             this.dataGridViewBorrower = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrowerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfBorrow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noOfBooksBorrowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.borrowerNameComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,13 +86,6 @@
             this.label4.Size = new System.Drawing.Size(66, 12);
             this.label4.TabIndex = 3;
             this.label4.Text = "Book Name:";
-            // 
-            // borrowerNameTextBox
-            // 
-            this.borrowerNameTextBox.Location = new System.Drawing.Point(127, 132);
-            this.borrowerNameTextBox.Name = "borrowerNameTextBox";
-            this.borrowerNameTextBox.Size = new System.Drawing.Size(123, 19);
-            this.borrowerNameTextBox.TabIndex = 4;
             // 
             // borrowDateTimePicker
             // 
@@ -172,17 +165,6 @@
             this.dataGridViewBorrower.RowTemplate.Height = 21;
             this.dataGridViewBorrower.Size = new System.Drawing.Size(494, 351);
             this.dataGridViewBorrower.TabIndex = 11;
-            this.dataGridViewBorrower.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellContentClick);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(457, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Borrower Information:";
             // 
             // id
             // 
@@ -215,11 +197,31 @@
             this.noOfBooksBorrowed.Name = "noOfBooksBorrowed";
             this.noOfBooksBorrowed.Width = 60;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label5.Location = new System.Drawing.Point(457, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Borrower Information:";
+            // 
+            // borrowerNameComboBox
+            // 
+            this.borrowerNameComboBox.FormattingEnabled = true;
+            this.borrowerNameComboBox.Location = new System.Drawing.Point(127, 136);
+            this.borrowerNameComboBox.Name = "borrowerNameComboBox";
+            this.borrowerNameComboBox.Size = new System.Drawing.Size(123, 20);
+            this.borrowerNameComboBox.TabIndex = 13;
+            this.borrowerNameComboBox.Text = "Choose a member  name.";
+            // 
             // Lend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.borrowerNameComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridViewBorrower);
             this.Controls.Add(this.lms);
@@ -229,7 +231,6 @@
             this.Controls.Add(this.lendButton);
             this.Controls.Add(this.bookNameComboBox);
             this.Controls.Add(this.borrowDateTimePicker);
-            this.Controls.Add(this.borrowerNameTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -249,7 +250,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox borrowerNameTextBox;
         private System.Windows.Forms.DateTimePicker borrowDateTimePicker;
         private System.Windows.Forms.ComboBox bookNameComboBox;
         private System.Windows.Forms.Button lendButton;
@@ -264,5 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBorrow;
         private System.Windows.Forms.DataGridViewTextBoxColumn noOfBooksBorrowed;
+        private System.Windows.Forms.ComboBox borrowerNameComboBox;
     }
 }

@@ -39,6 +39,7 @@
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.registerText = new System.Windows.Forms.Label();
+            this.dateAndTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,12 +142,24 @@
             this.registerText.TabIndex = 9;
             this.registerText.Text = "If you don\'t have an account?";
             // 
+            // dateAndTime
+            // 
+            this.dateAndTime.AutoSize = true;
+            this.dateAndTime.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+            this.dateAndTime.Location = new System.Drawing.Point(589, 79);
+            this.dateAndTime.Name = "dateAndTime";
+            this.dateAndTime.Size = new System.Drawing.Size(100, 15);
+            this.dateAndTime.TabIndex = 12;
+            this.dateAndTime.Text = "Date and Time";
+            this.dateAndTime.Click += new System.EventHandler(this.dateAndTime_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateAndTime);
             this.Controls.Add(this.registerText);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.passwordTextbox);
@@ -181,6 +194,7 @@
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Label registerText;
+        private System.Windows.Forms.Label dateAndTime;
     }
 }
 

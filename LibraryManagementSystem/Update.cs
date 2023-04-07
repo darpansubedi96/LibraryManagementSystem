@@ -21,6 +21,7 @@ namespace LMS
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
         public int id;
         
         public Update()
@@ -31,7 +32,7 @@ namespace LMS
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
+            cn = new SqlConnection(connectionString);
             cn.Open();
 
             if (textBox1.Text != string.Empty || textBox2.Text != string.Empty ||
@@ -70,7 +71,7 @@ namespace LMS
 
         private void Update_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
+            cn = new SqlConnection(connectionString);
             cn.Open();
             SqlCommand comm = new SqlCommand("Select * From Books where id ="+id, cn);
 

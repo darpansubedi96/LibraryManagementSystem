@@ -18,6 +18,8 @@ namespace LMS
 
         private void lendButton_Click(object sender, EventArgs e)
         {
+            //check if all data are instered or not  -- garna baki xa
+
             string requiredBookName = bookNameComboBox.SelectedItem.ToString();
             string requiredNoOfBooks = noOfBooksTextBox.Text;
             int requiredNoOfBooksInt = Convert.ToInt32(requiredNoOfBooks);
@@ -35,7 +37,7 @@ namespace LMS
             {
                 if (availableNoOfBooks >= requiredNoOfBooksInt)
                 {
-                    string borrowerName = borrowerNameTextBox.Text;
+                    string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
                     string fromDate1 = borrowDateTimePicker.Text;
                     cmd = new SqlCommand("INSERT INTO Lend (borrowerName, bookName, fromDate, noOfBooks) VALUES('" + borrowerName + "', '" + requiredBookName + "', '" + fromDate1 + "', '" + requiredNoOfBooks + "');", cn);
 
@@ -85,7 +87,7 @@ namespace LMS
                     });
                 }
             }
-
+            BindMemberName();
             BindData();
         }
         public void BindData()
@@ -98,15 +100,21 @@ namespace LMS
             }
             dr.Close();
         }
+        public void BindMemberName()
+        {
+            cmd = new SqlCommand("Select name from Member m ORDER BY m.name", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                borrowerNameComboBox.Items.Add(dr[0].ToString());
+            }
+            dr.Close();
+        }
 
         private void CancleButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dataGridViewBorrower_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

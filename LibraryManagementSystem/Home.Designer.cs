@@ -35,6 +35,8 @@
             this.logoutButton = new System.Windows.Forms.Button();
             this.lendButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
+            this.memberButton = new System.Windows.Forms.Button();
+            this.dateAndTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,11 +114,35 @@
             this.returnButton.UseVisualStyleBackColor = true;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
+            // memberButton
+            // 
+            this.memberButton.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberButton.Location = new System.Drawing.Point(125, 370);
+            this.memberButton.Name = "memberButton";
+            this.memberButton.Size = new System.Drawing.Size(173, 39);
+            this.memberButton.TabIndex = 10;
+            this.memberButton.Text = "Membership";
+            this.memberButton.UseVisualStyleBackColor = true;
+            this.memberButton.Click += new System.EventHandler(this.memberButton_Click);
+            // 
+            // dateAndTime
+            // 
+            this.dateAndTime.AutoSize = true;
+            this.dateAndTime.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+            this.dateAndTime.Location = new System.Drawing.Point(632, 73);
+            this.dateAndTime.Name = "dateAndTime";
+            this.dateAndTime.Size = new System.Drawing.Size(100, 15);
+            this.dateAndTime.TabIndex = 11;
+            this.dateAndTime.Text = "Date and Time";
+            this.dateAndTime.Click += new System.EventHandler(this.dateAndTime_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateAndTime);
+            this.Controls.Add(this.memberButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.lendButton);
             this.Controls.Add(this.logoutButton);
@@ -143,5 +169,7 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button lendButton;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Button memberButton;
+        private System.Windows.Forms.Label dateAndTime;
     }
 }

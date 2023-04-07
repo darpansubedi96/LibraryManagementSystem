@@ -62,5 +62,9 @@ namespace LibraryManagementSystem
             registration.ShowDialog();
         }
 
+        private void dateAndTime_Click(object sender, EventArgs e)
+        {
+            this.dateAndTime.Text = DateTime.Now.ToString("f");
+        }
     }
 }

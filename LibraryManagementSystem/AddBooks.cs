@@ -16,6 +16,8 @@ namespace LibraryManagementSystem
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
+
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
         public AddBooks()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace LibraryManagementSystem
         private void saveBook_Click(object sender, EventArgs e)
         {
             if (booksNameTextbox.Text != string.Empty || booksAuthorTextBox.Text != string.Empty ||
-                bookCountTextBox.Text != string.Empty || bookCategoryDropDown.Text != string.Empty)
+                bookCountTextBox.Text != string.Empty || bookCategoryDropDown.SelectedIndex == -1)
             {
                 cmd = new SqlCommand("select * from Books where name = '" + booksNameTextbox.Text + "' and author = '" + booksAuthorTextBox.Text + "'  and category = '" + bookCategoryDropDown.Text + "'", cn);
                 //cmd = new SqlCommand("select * from Books where username='" + regUsernameTextBox.Text + "'", cn);
@@ -82,7 +84,7 @@ namespace LibraryManagementSystem
 
         private void AddBooks_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
+            cn = new SqlConnection(connectionString);
             cn.Open();
         }
     }

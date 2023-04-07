@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS
@@ -29,21 +22,29 @@ namespace LMS
 
         private void submit_Click(object sender, EventArgs e)
         {
-            //calculate fine
-            // add count to Books table
+            //add count to Books table
+            string borrowername = borrowerNameComboBox.SelectedItem.ToString();
+            string bookName = label8.Text;
+            string count = label9.Text;
+
+            string query = "Update Books set count = count +" + count + " where id IN (select b.id from Books b inner join Lend l on b.name = l.bookName where l.bookName = '" + bookName + "')";
+            cmd = new SqlCommand(query,cn);
+            cmd.ExecuteNonQuery();
+
             // delete from Lend table
-        }
-        private int fineCalculation()
-        {
-            return 0;  //this is to calculate fine
+            string query1 = "Delete from Lend where borrowerName= '"+borrowername+"' and bookName= '"+bookName+"' and noOfBooks= '"+count+"'";
+            cmd = new SqlCommand(@query1,cn);
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Book received successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void Return_Load(object sender, EventArgs e)
         {
             cn = new SqlConnection(connectionString);
             cn.Open();
-            borrowerName();
-            // load the borrower name
+            borrowerName();// load the borrower name
         }
         
         private void borrowerName()
@@ -58,17 +59,20 @@ namespace LMS
             rdr.Close();
 
         }
-
+        
         private void bookOperation()
         {
+            string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
             string booksName = null;
             string booksCount = null;
             string borrowedDate = null;
-            string query = "select bookname, noOfBooks, fromDate from Lend";
+            //string id = null;
+            string query = "select bookname, noOfBooks, fromDate from Lend where borrowerName='"+borrowerName+"'";
             cmd = new SqlCommand(query, cn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                //id = rdr[0].ToString();
                 booksName =rdr[0].ToString();
                 booksCount = rdr[1].ToString();
                 borrowedDate = rdr[2].ToString();
@@ -77,7 +81,9 @@ namespace LMS
             this.label8.Text = booksName;
             this.label9.Text = booksCount;
             this.label10.Text = borrowedDate;
+            
         }
+
         
         private void borrowerNameComboBox_SelectedIndexChanged(object sender, EventArgs e) //this method is executed when we select name from comboBox
         {

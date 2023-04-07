@@ -50,5 +50,17 @@ namespace LibraryManagementSystem
             Return receive = new Return();
             receive.ShowDialog();
         }
+
+        private void memberButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Membership membership = new Membership();
+            membership.ShowDialog();
+        }
+
+        private void dateAndTime_Click(object sender, EventArgs e)
+        {
+            this.dateAndTime.Text = DateTime.Now.ToString("f");
+        }
     }
 }
