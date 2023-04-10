@@ -96,7 +96,6 @@ namespace LMS
             this.label10.Text = borrowedDate;
             
         }
-
         
         private void borrowerNameComboBox_SelectedIndexChanged(object sender, EventArgs e) //this method is executed when we select name from comboBox
         {
@@ -111,6 +110,7 @@ namespace LMS
                 borrowedDate = DateTime.Parse(rdr[0].ToString());
             }
             rdr.Close();
+
 
             TimeSpan diffOfDates = returnDate.Subtract(borrowedDate);
             int days = diffOfDates.Days;

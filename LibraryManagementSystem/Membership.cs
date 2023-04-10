@@ -41,7 +41,12 @@ namespace LMS
                     cmd.Parameters.AddWithValue("memberPhoneNumber", PhoneNoTextBox.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Member data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    this.Close();
+                    Membership main = new Membership();
+                    main.Show();
                 }
+
             }
             else
             {
@@ -60,7 +65,7 @@ namespace LMS
         {
             conn = new SqlConnection(connectionString);
             conn.Open();
-            SqlCommand comm = new SqlCommand("Select * From Member m", conn);
+            SqlCommand comm = new SqlCommand("Select * From Member m order by name", conn);
             using (SqlDataReader read = comm.ExecuteReader())
             {
                 while (read.Read())
@@ -126,13 +131,6 @@ namespace LMS
             this.Hide();
             Home home = new Home();
             home.ShowDialog();
-        }
-
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Membership main = new Membership();
-            main.Show();
         }
     }
 }
