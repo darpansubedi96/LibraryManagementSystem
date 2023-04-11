@@ -29,7 +29,6 @@ namespace LMS
             else
             {
                 //add count to Books table
-                string borrowername = borrowerNameComboBox.SelectedItem.ToString();
                 string bookName = label8.Text;
                 string count = label9.Text;
 
@@ -37,8 +36,11 @@ namespace LMS
                 cmd = new SqlCommand(query, cn);
                 cmd.ExecuteNonQuery();
 
+
+                var splitedtext = borrowerNameComboBox.SelectedItem.ToString().Split('-');
+                string a = splitedtext[0].Trim();
                 // delete from Lend table
-                string query1 = "Delete from Lend where borrowerName= '" + borrowername + "' and bookName= '" + bookName + "' and noOfBooks= '" + count + "'";
+                string query1 = "Delete from Lend where borrowerName= '" + a + "' and bookName= '" + bookName + "' and noOfBooks= '" + count + "'";
                 cmd = new SqlCommand(@query1, cn);
                 cmd.ExecuteNonQuery();
 

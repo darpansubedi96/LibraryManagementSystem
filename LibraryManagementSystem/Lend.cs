@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace LMS
@@ -97,6 +98,19 @@ namespace LMS
             }
             BindMemberName();
             BindData();
+        }
+
+        private void countRowsOfBooks()
+        {
+            string count = null; 
+            string command = "SELECT COUNT(*) FROM Books";
+            cmd = new SqlCommand(command); 
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                count = dr[0].ToString();
+            }
+            int lount = Convert.ToInt32(count);
         }
         public void BindData()
         {
