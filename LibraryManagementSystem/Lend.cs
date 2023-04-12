@@ -52,7 +52,7 @@ namespace LMS
                             // if CausesValidation is True
                             if (!Validate())
                             {
-                                rdr.Close();
+                                dr.Close();
                                 DialogResult = DialogResult.None;
                                 return;
                             }
