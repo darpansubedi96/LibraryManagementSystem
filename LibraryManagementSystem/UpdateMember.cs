@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LMS
@@ -57,6 +58,19 @@ namespace LMS
                 }
                 else
                 {
+                    foreach (Control control in this.Controls)
+                    {
+                        // Set focus on control
+                        control.Focus();
+                        // Validate causes the control's Validating event to be fired,
+                        // if CausesValidation is True
+                        if (!Validate())
+                        {
+                            dr.Close();
+                            DialogResult = DialogResult.None;
+                            return;
+                        }
+                    }
                     dr.Close();
                     cmd = new SqlCommand("UPDATE Member SET name = @memberName, address = @memberAddress, gender = @memberGender, phone = @memberPhone WHERE id = " + id, cn);
                     cmd.Parameters.AddWithValue("memberName", textBox1.Text);
@@ -71,6 +85,21 @@ namespace LMS
             else
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox3_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(textBox3.Text, @"^\d+"))
+            {
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider1.SetError(textBox3, "Phone number must be number!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox3, "");
             }
         }
     }

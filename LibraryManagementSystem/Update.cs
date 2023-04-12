@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LMS
@@ -36,6 +37,20 @@ namespace LMS
                 }
                 else
                 {
+                    foreach (Control control in this.Controls)
+                    {
+                        // Set focus on control
+                        control.Focus();
+                        // Validate causes the control's Validating event to be fired,
+                        // if CausesValidation is True
+                        if (!Validate())
+                        {
+                            dr.Close();
+                            DialogResult = DialogResult.None;
+                            return;
+                        }
+                    }
+
                     dr.Close();
                     cmd = new SqlCommand("UPDATE Books SET name = @booksNameTextbox, author = @booksAuthorTextBox, category = @bookCategoryDropDown, count = @bookCountTextBox WHERE id = " + id, cn);
                     cmd.Parameters.AddWithValue("booksNameTextbox", textBox1.Text);
@@ -74,6 +89,21 @@ namespace LMS
                 textBox3.Text = DR1.GetValue(4).ToString();
             }
             cn.Close();
+        }
+
+        private void textBox3_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(textBox3.Text, @"^\d+"))
+            {
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider1.SetError(textBox3, "Count must be number!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox3, "");
+            }
         }
     }
 }

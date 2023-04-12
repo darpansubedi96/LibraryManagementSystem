@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LMS
@@ -43,6 +44,19 @@ namespace LMS
                 {
                     if (availableNoOfBooks >= requiredNoOfBooksInt)
                     {
+                        foreach (Control control in this.Controls)
+                        {
+                            // Set focus on control
+                            control.Focus();
+                            // Validate causes the control's Validating event to be fired,
+                            // if CausesValidation is True
+                            if (!Validate())
+                            {
+                                rdr.Close();
+                                DialogResult = DialogResult.None;
+                                return;
+                            }
+                        }
                         string borrowerName = borrowerNameComboBox.SelectedItem.ToString();
                         string fromDate1 = borrowDateTimePicker.Text;
                         cmd = new SqlCommand("INSERT INTO Lend (borrowerName, bookName, fromDate, noOfBooks) VALUES('" + borrowerName + "', '" + requiredBookName + "', '" + fromDate1 + "', '" + requiredNoOfBooks + "');", cn);
@@ -100,18 +114,6 @@ namespace LMS
             BindData();
         }
 
-        private void countRowsOfBooks()
-        {
-            string count = null; 
-            string command = "SELECT COUNT(*) FROM Books";
-            cmd = new SqlCommand(command); 
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                count = dr[0].ToString();
-            }
-            int lount = Convert.ToInt32(count);
-        }
         public void BindData()
         {
             cmd = new SqlCommand("Select name From Books b ORDER BY b.name", cn);
@@ -138,5 +140,19 @@ namespace LMS
             this.Close();
         }
 
+        private void noOfBooksTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(noOfBooksTextBox.Text, @"^\d+"))
+            {
+                e.Cancel = true;
+                noOfBooksTextBox.Focus();
+                errorProvider1.SetError(noOfBooksTextBox, "Number of books must be a number!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(noOfBooksTextBox, "");
+            }
+        }
     }
 }

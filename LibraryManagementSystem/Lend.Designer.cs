@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,7 +48,11 @@
             this.noOfBooksBorrowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.borrowerNameComboBox = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -129,6 +134,7 @@
             this.noOfBooksTextBox.Name = "noOfBooksTextBox";
             this.noOfBooksTextBox.Size = new System.Drawing.Size(123, 19);
             this.noOfBooksTextBox.TabIndex = 9;
+            this.noOfBooksTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.noOfBooksTextBox_Validating);
             // 
             // CancleButton
             // 
@@ -216,6 +222,14 @@
             this.borrowerNameComboBox.TabIndex = 13;
             this.borrowerNameComboBox.Text = "Choose a member  name.";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // Lend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -239,6 +253,8 @@
             this.Text = "Lend";
             this.Load += new System.EventHandler(this.Lend_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +281,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBorrow;
         private System.Windows.Forms.DataGridViewTextBoxColumn noOfBooksBorrowed;
         private System.Windows.Forms.ComboBox borrowerNameComboBox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

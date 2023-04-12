@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.backButton = new System.Windows.Forms.Button();
             this.lms = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
@@ -41,6 +42,8 @@
             this.bookCountTextBox = new System.Windows.Forms.TextBox();
             this.bookCategoryDropDown = new System.Windows.Forms.ComboBox();
             this.saveBook = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -148,6 +151,7 @@
             this.bookCountTextBox.Name = "bookCountTextBox";
             this.bookCountTextBox.Size = new System.Drawing.Size(278, 22);
             this.bookCountTextBox.TabIndex = 16;
+            this.bookCountTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.bookCountTextBox_Validating);
             // 
             // bookCategoryDropDown
             // 
@@ -184,6 +188,10 @@
             this.saveBook.UseVisualStyleBackColor = true;
             this.saveBook.Click += new System.EventHandler(this.saveBook_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -207,6 +215,7 @@
             this.Name = "AddBooks";
             this.Text = "AddBooks";
             this.Load += new System.EventHandler(this.AddBooks_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +236,6 @@
         private System.Windows.Forms.TextBox bookCountTextBox;
         private System.Windows.Forms.ComboBox bookCategoryDropDown;
         private System.Windows.Forms.Button saveBook;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

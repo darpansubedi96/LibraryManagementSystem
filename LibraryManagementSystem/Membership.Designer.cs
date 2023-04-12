@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lms = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +52,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lms
@@ -129,6 +132,7 @@
             this.PhoneNoTextBox.Name = "PhoneNoTextBox";
             this.PhoneNoTextBox.Size = new System.Drawing.Size(100, 19);
             this.PhoneNoTextBox.TabIndex = 8;
+            this.PhoneNoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneNoTextBox_Validating);
             // 
             // genderComboBox
             // 
@@ -261,6 +265,10 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Membership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -286,6 +294,7 @@
             this.Text = "Membership";
             this.Load += new System.EventHandler(this.Membership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +325,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNo;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

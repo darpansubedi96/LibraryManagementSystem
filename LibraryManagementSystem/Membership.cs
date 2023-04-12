@@ -1,6 +1,7 @@
 ﻿using LibraryManagementSystem;
 using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LMS
@@ -31,6 +32,20 @@ namespace LMS
                 }
                 else
                 {
+                    foreach (Control control in this.Controls)
+                    {
+                        // Set focus on control
+                        control.Focus();
+                        // Validate causes the control's Validating event to be fired,
+                        // if CausesValidation is True
+                        if (!Validate())
+                        {
+                            rdr.Close();
+                            DialogResult = DialogResult.None;
+                            return;
+                        }
+                    }
+
                     rdr.Close();
                     conn = new SqlConnection(connectionString);
                     conn.Open();
@@ -41,10 +56,11 @@ namespace LMS
                     cmd.Parameters.AddWithValue("memberPhoneNumber", PhoneNoTextBox.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Member data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     this.Close();
                     Membership main = new Membership();
                     main.Show();
+                    
                 }
 
             }
@@ -131,6 +147,21 @@ namespace LMS
             this.Hide();
             Home home = new Home();
             home.ShowDialog();
+        }
+
+        private void PhoneNoTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(PhoneNoTextBox.Text, @"^\d+"))
+            {
+                e.Cancel = true;
+                PhoneNoTextBox.Focus();
+                errorProvider1.SetError(PhoneNoTextBox, "Phone number must be number!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(PhoneNoTextBox, "");
+            }
         }
     }
 }
