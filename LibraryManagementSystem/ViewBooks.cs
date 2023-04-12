@@ -9,6 +9,8 @@ namespace LibraryManagementSystem
     {
         SqlConnection cn;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
+        
+        General general = new General();
         public ViewBooks()
         {
             InitializeComponent();
@@ -23,13 +25,7 @@ namespace LibraryManagementSystem
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                Login login = new Login();
-                login.Show();
-            }
+            general.logout(this);
         }
 
         private void ViewBooks_Load(object sender, EventArgs e)

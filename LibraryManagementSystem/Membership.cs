@@ -13,6 +13,8 @@ namespace LMS
         SqlDataReader rdr;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
 
+        General general;
+
         public Membership()
         {
             InitializeComponent();
@@ -72,9 +74,29 @@ namespace LMS
 
         private void cancleBotton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Home home = new Home();
-            home.ShowDialog();
+            ClearAll(this);
+        }
+        
+        public static void ClearAll(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                var texbox = c as TextBox;
+                var comboBox = c as ComboBox;
+                var dateTimePicker = c as DateTimePicker;
+
+                if (texbox != null)
+                    texbox.Clear();
+                if (comboBox != null)
+                    comboBox.SelectedIndex = -1;
+                /*if (dateTimePicker != null)
+                {
+                    dateTimePicker.Format = DateTimePickerFormat.Short;
+                    dateTimePicker.CustomFormat = " ";
+                }*/
+                if (c.HasChildren)
+                    ClearAll(c);
+            }
         }
 
         private void Membership_Load(object sender, EventArgs e)
@@ -133,13 +155,7 @@ namespace LMS
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                Login login = new Login();
-                login.Show();
-            }
+            general.logout(this);
         }
 
         private void backButton_Click(object sender, EventArgs e)

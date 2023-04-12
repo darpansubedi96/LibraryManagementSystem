@@ -6,6 +6,7 @@ namespace LibraryManagementSystem
 {
     public partial class Home : Form
     {
+        General general = new General();
         public Home()
         {
             InitializeComponent();
@@ -27,9 +28,7 @@ namespace LibraryManagementSystem
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.Show();
+            general.logout(this);
         }
 
         private void lendButton_Click(object sender, EventArgs e)

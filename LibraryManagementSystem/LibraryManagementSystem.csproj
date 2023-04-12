@@ -117,6 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
