@@ -209,5 +209,12 @@ namespace LMS
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Membership membership = new Membership();
+            membership.Show();
+        }
     }
 }
