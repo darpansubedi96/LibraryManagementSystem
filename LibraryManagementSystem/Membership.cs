@@ -1,6 +1,9 @@
 ﻿using LibraryManagementSystem;
 using System;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -11,9 +14,10 @@ namespace LMS
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataReader rdr;
+        MemoryStream ms;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
 
-        General general;
+        General general = new General();
 
         public Membership()
         {
@@ -47,11 +51,16 @@ namespace LMS
                             return;
                         }
                     }
-
                     rdr.Close();
+
                     conn = new SqlConnection(connectionString);
                     conn.Open();
-                    cmd = new SqlCommand("INSERT INTO Member (name, address, gender, phone) VALUES(@memberName, @memberAddress, @memberGender, @memberPhoneNumber);", conn);
+                    cmd = new SqlCommand("INSERT INTO Member (name, address, gender, phone, image, dateOfJoin) VALUES(@memberName, @memberAddress, @memberGender, @memberPhoneNumber, @image, @dateOfJoin);", conn);
+
+                    conv_photo();
+
+                    currentdate();
+
                     cmd.Parameters.AddWithValue("memberName", nameTextBox.Text);
                     cmd.Parameters.AddWithValue("memberAddress", addressTextBox.Text);
                     cmd.Parameters.AddWithValue("memberGender", genderComboBox.SelectedItem.ToString());
@@ -71,33 +80,38 @@ namespace LMS
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        void currentdate()
+        {
+            var dateTime = DateTime.Now;
+            var longDateTime = dateTime.ToLongDateString();
+            cmd.Parameters.AddWithValue("@dateOfJoin", longDateTime);
+        }
+        void conv_photo()
+        {
+            //converting photo to binary data
+            if (pictureBox1.Image != null)
+            {
+                //using FileStream:(will not work while updating, if image is not changed)
+                //FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
+                //byte[] photo_aray = new byte[fs.Length];
+                //fs.Read(photo_aray, 0, photo_aray.Length);  
+
+                //using MemoryStream:
+                ms = new MemoryStream();
+                pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
+                byte[] photo_aray = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(photo_aray, 0, photo_aray.Length);
+                cmd.Parameters.AddWithValue("@image", photo_aray);
+            }
+        }
 
         private void cancleBotton_Click(object sender, EventArgs e)
         {
-            ClearAll(this);
+            general.ClearAll(this);
         }
         
-        public static void ClearAll(Control control)
-        {
-            foreach (Control c in control.Controls)
-            {
-                var texbox = c as TextBox;
-                var comboBox = c as ComboBox;
-                var dateTimePicker = c as DateTimePicker;
-
-                if (texbox != null)
-                    texbox.Clear();
-                if (comboBox != null)
-                    comboBox.SelectedIndex = -1;
-                /*if (dateTimePicker != null)
-                {
-                    dateTimePicker.Format = DateTimePickerFormat.Short;
-                    dateTimePicker.CustomFormat = " ";
-                }*/
-                if (c.HasChildren)
-                    ClearAll(c);
-            }
-        }
+        
 
         private void Membership_Load(object sender, EventArgs e)
         {
@@ -141,10 +155,15 @@ namespace LMS
                         }
                     }
                 }
-                else
+                else if (columnName.Equals("edit"))
                 {
                     UpdateMember update = new UpdateMember() { id = id };
                     update.ShowDialog();
+                }
+                else
+                {
+                    MemebershipCard memebershipCard = new MemebershipCard() { id = id };
+                    memebershipCard.ShowDialog();
                 }
             }
             else
@@ -177,6 +196,17 @@ namespace LMS
             {
                 e.Cancel = false;
                 errorProvider1.SetError(PhoneNoTextBox, "");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(opnfd.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
     }

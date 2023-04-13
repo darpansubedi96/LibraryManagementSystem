@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -12,7 +15,10 @@ namespace LMS
         SqlConnection cn;
         SqlDataReader dr;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
+        byte[] photo_aray;
         public int id;
+        MemoryStream ms;
+        General general = new General();
         public UpdateMember()
         {
             InitializeComponent();
@@ -37,6 +43,15 @@ namespace LMS
                 textBox2.Text = DR1.GetValue(2).ToString();
                 comboBox1.Text = DR1.GetValue(3).ToString();
                 textBox3.Text = DR1.GetValue(4).ToString();
+
+                pictureBox1.Image = null;
+                if (DR1.GetValue(5) != System.DBNull.Value)
+                {
+                    photo_aray = (byte[])DR1.GetValue(5);
+                    MemoryStream ms = new MemoryStream(photo_aray);
+                    pictureBox1.Image = Image.FromStream(ms);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
             }
             cn.Close();
         }
@@ -72,7 +87,8 @@ namespace LMS
                         }
                     }
                     dr.Close();
-                    cmd = new SqlCommand("UPDATE Member SET name = @memberName, address = @memberAddress, gender = @memberGender, phone = @memberPhone WHERE id = " + id, cn);
+                    cmd = new SqlCommand("UPDATE Member SET name = @memberName, address = @memberAddress, gender = @memberGender, phone = @memberPhone, image = @image WHERE id = " + id, cn);
+                    general.conv_photo(pictureBox1, cmd);
                     cmd.Parameters.AddWithValue("memberName", textBox1.Text);
                     cmd.Parameters.AddWithValue("memberAddress", textBox2.Text);
                     cmd.Parameters.AddWithValue("memberGender", comboBox1.SelectedItem.ToString());
@@ -87,6 +103,7 @@ namespace LMS
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
 
         private void textBox3_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -100,6 +117,17 @@ namespace LMS
             {
                 e.Cancel = false;
                 errorProvider1.SetError(textBox3, "");
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(opnfd.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
     }

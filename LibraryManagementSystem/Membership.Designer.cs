@@ -53,8 +53,11 @@
             this.logoutButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lms
@@ -79,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 100);
+            this.label3.Location = new System.Drawing.Point(23, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 12);
             this.label3.TabIndex = 2;
@@ -88,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 139);
+            this.label4.Location = new System.Drawing.Point(23, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 12);
             this.label4.TabIndex = 3;
@@ -97,7 +100,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 224);
+            this.label5.Location = new System.Drawing.Point(23, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 12);
             this.label5.TabIndex = 4;
@@ -106,7 +109,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 182);
+            this.label1.Location = new System.Drawing.Point(23, 189);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 12);
             this.label1.TabIndex = 5;
@@ -114,21 +117,21 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(118, 97);
+            this.nameTextBox.Location = new System.Drawing.Point(116, 104);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 19);
             this.nameTextBox.TabIndex = 6;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(118, 139);
+            this.addressTextBox.Location = new System.Drawing.Point(116, 146);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 19);
             this.addressTextBox.TabIndex = 7;
             // 
             // PhoneNoTextBox
             // 
-            this.PhoneNoTextBox.Location = new System.Drawing.Point(118, 221);
+            this.PhoneNoTextBox.Location = new System.Drawing.Point(116, 228);
             this.PhoneNoTextBox.Name = "PhoneNoTextBox";
             this.PhoneNoTextBox.Size = new System.Drawing.Size(100, 19);
             this.PhoneNoTextBox.TabIndex = 8;
@@ -141,7 +144,7 @@
             "Male",
             "Female",
             "Other"});
-            this.genderComboBox.Location = new System.Drawing.Point(118, 179);
+            this.genderComboBox.Location = new System.Drawing.Point(116, 186);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(100, 20);
             this.genderComboBox.TabIndex = 9;
@@ -149,7 +152,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(27, 270);
+            this.saveButton.Location = new System.Drawing.Point(27, 415);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 10;
@@ -159,7 +162,7 @@
             // 
             // cancleBotton
             // 
-            this.cancleBotton.Location = new System.Drawing.Point(143, 270);
+            this.cancleBotton.Location = new System.Drawing.Point(143, 415);
             this.cancleBotton.Name = "cancleBotton";
             this.cancleBotton.Size = new System.Drawing.Size(75, 23);
             this.cancleBotton.TabIndex = 11;
@@ -269,11 +272,31 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(76, 263);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 88);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(76, 371);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Upload Picture";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Membership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.label6);
@@ -295,6 +318,7 @@
             this.Load += new System.EventHandler(this.Membership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +350,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
