@@ -184,24 +184,28 @@
             this.borrowerName.HeaderText = "Borrower Name";
             this.borrowerName.Name = "borrowerName";
             this.borrowerName.Width = 145;
+            this.borrowerName.ReadOnly = true;
             // 
             // bookName
             // 
             this.bookName.HeaderText = "Book Name";
             this.bookName.Name = "bookName";
             this.bookName.Width = 140;
+            this.bookName.ReadOnly = true;
             // 
             // dateOfBorrow
             // 
             this.dateOfBorrow.HeaderText = "Date of Borrow";
             this.dateOfBorrow.Name = "dateOfBorrow";
             this.dateOfBorrow.Width = 110;
+            this.dateOfBorrow.ReadOnly = true;
             // 
             // noOfBooksBorrowed
             // 
             this.noOfBooksBorrowed.HeaderText = "Numbers";
             this.noOfBooksBorrowed.Name = "noOfBooksBorrowed";
             this.noOfBooksBorrowed.Width = 60;
+            this.noOfBooksBorrowed.ReadOnly = true;
             // 
             // label5
             // 

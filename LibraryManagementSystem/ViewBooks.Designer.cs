@@ -128,24 +128,28 @@ namespace LibraryManagementSystem
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.Width = 170;
+            this.name.ReadOnly = true;
             // 
             // author
             // 
             this.author.HeaderText = "Author";
             this.author.Name = "author";
             this.author.Width = 150;
+            this.author.ReadOnly = true;
             // 
             // category
             // 
             this.category.HeaderText = "Category";
             this.category.Name = "category";
             this.category.Width = 150;
+            this.category.ReadOnly = true;
             // 
             // count
             // 
             this.count.HeaderText = "Count";
             this.count.Name = "count";
             this.count.Width = 83;
+            this.count.ReadOnly = true;
             // 
             // update
             // 
