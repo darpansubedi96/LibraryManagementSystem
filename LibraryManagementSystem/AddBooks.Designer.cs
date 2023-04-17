@@ -214,6 +214,8 @@
             this.MinimizeBox = false;
             this.Name = "AddBooks";
             this.Text = "AddBooks";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.AddBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

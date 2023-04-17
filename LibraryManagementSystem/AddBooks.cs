@@ -41,47 +41,41 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
-                if (ValidateChildren(ValidationConstraints.Enabled))
-                {
-                    MessageBox.Show(bookCountTextBox.Text, "Demo App - Message!");
+            {       
+                cmd = new SqlCommand("select * from Books where name = '" + booksNameTextbox.Text + "' and author = '" + booksAuthorTextBox.Text + "'  and category = '" + bookCategoryDropDown.Text + "'", cn);
+                dr = cmd.ExecuteReader();
+                if (dr.Read())  // validate from table
+                    {
+                    dr.Close();
+                    MessageBox.Show("Books already exists in Library.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else {
-                    cmd = new SqlCommand("select * from Books where name = '" + booksNameTextbox.Text + "' and author = '" + booksAuthorTextBox.Text + "'  and category = '" + bookCategoryDropDown.Text + "'", cn);
-                    dr = cmd.ExecuteReader();
-                    if (dr.Read())  // validate from table
-                    {
-                        dr.Close();
-                        MessageBox.Show("Books already exists in Library.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
+                else
+                {
 
-                        foreach (Control control in this.Controls)
+                    foreach (Control control in this.Controls)
+                    {
+                        // Set focus on control
+                        control.Focus();
+                        // Validate causes the control's Validating event to be fired,
+                        // if CausesValidation is True
+                        if (!Validate())
                         {
-                            // Set focus on control
-                            control.Focus();
-                            // Validate causes the control's Validating event to be fired,
-                            // if CausesValidation is True
-                            if (!Validate())
-                            {
-                                dr.Close();
-                                DialogResult = DialogResult.None;
-                                return;
-                            }
+                            dr.Close();
+                            DialogResult = DialogResult.None;
+                            return;
                         }
-
-
-                        dr.Close();
-                        cmd = new SqlCommand("INSERT INTO Books (name, author, category, count) VALUES(@booksNameTextbox, @booksAuthorTextBox, @bookCategoryDropDown, @bookCountTextBox);", cn);
-                        cmd.Parameters.AddWithValue("booksNameTextbox", booksNameTextbox.Text);
-                        cmd.Parameters.AddWithValue("booksAuthorTextBox", booksAuthorTextBox.Text);
-                        cmd.Parameters.AddWithValue("bookCategoryDropDown", bookCategoryDropDown.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("bookCountTextBox", bookCountTextBox.Text);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Book data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Refresh();
                     }
+
+
+                    dr.Close();
+                    cmd = new SqlCommand("INSERT INTO Books (name, author, category, count) VALUES(@booksNameTextbox, @booksAuthorTextBox, @bookCategoryDropDown, @bookCountTextBox);", cn);
+                    cmd.Parameters.AddWithValue("booksNameTextbox", booksNameTextbox.Text);
+                    cmd.Parameters.AddWithValue("booksAuthorTextBox", booksAuthorTextBox.Text);
+                    cmd.Parameters.AddWithValue("bookCategoryDropDown", bookCategoryDropDown.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("bookCountTextBox", bookCountTextBox.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Book data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    general.ClearAll(this);
                 }  
             }
         }

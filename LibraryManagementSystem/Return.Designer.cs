@@ -205,6 +205,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Return";
             this.Text = "Return";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.Return_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

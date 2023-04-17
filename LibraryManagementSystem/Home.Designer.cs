@@ -154,6 +154,8 @@
             this.MinimizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

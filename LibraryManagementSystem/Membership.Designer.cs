@@ -328,6 +328,8 @@
             this.Controls.Add(this.lms);
             this.Name = "Membership";
             this.Text = "Membership";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.Membership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

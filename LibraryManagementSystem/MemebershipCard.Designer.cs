@@ -170,6 +170,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "MemebershipCard";
             this.Text = "MemebershipCard";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.MemebershipCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

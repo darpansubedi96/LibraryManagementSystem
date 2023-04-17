@@ -35,7 +35,6 @@ namespace LibraryManagementSystem
             this.lms = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.refreshButton = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@ namespace LibraryManagementSystem
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,17 +105,6 @@ namespace LibraryManagementSystem
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // refreshButton
-            // 
-            this.refreshButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.refreshButton.Location = new System.Drawing.Point(632, 12);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 10;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
             // id
             // 
             this.id.HeaderText = "Id";
@@ -127,29 +116,29 @@ namespace LibraryManagementSystem
             // 
             this.name.HeaderText = "Name";
             this.name.Name = "name";
-            this.name.Width = 170;
             this.name.ReadOnly = true;
+            this.name.Width = 170;
             // 
             // author
             // 
             this.author.HeaderText = "Author";
             this.author.Name = "author";
-            this.author.Width = 150;
             this.author.ReadOnly = true;
+            this.author.Width = 150;
             // 
             // category
             // 
             this.category.HeaderText = "Category";
             this.category.Name = "category";
-            this.category.Width = 150;
             this.category.ReadOnly = true;
+            this.category.Width = 150;
             // 
             // count
             // 
             this.count.HeaderText = "Count";
             this.count.Name = "count";
-            this.count.Width = 83;
             this.count.ReadOnly = true;
+            this.count.Width = 83;
             // 
             // update
             // 
@@ -167,6 +156,17 @@ namespace LibraryManagementSystem
             this.delete.UseColumnTextForButtonValue = true;
             this.delete.Width = 90;
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.refreshButton.Location = new System.Drawing.Point(632, 12);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 10;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // ViewBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -181,6 +181,8 @@ namespace LibraryManagementSystem
             this.MinimizeBox = false;
             this.Name = "ViewBooks";
             this.Text = "View Books";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.ViewBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -33,6 +33,7 @@ namespace LibraryManagementSystem
 
         private void lendButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Lend lend = new Lend();
             lend.ShowDialog();
         }

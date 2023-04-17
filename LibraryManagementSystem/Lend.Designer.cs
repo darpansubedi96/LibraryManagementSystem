@@ -50,6 +50,8 @@
             this.borrowerNameComboBox = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.backButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -183,29 +185,29 @@
             // 
             this.borrowerName.HeaderText = "Borrower Name";
             this.borrowerName.Name = "borrowerName";
-            this.borrowerName.Width = 145;
             this.borrowerName.ReadOnly = true;
+            this.borrowerName.Width = 145;
             // 
             // bookName
             // 
             this.bookName.HeaderText = "Book Name";
             this.bookName.Name = "bookName";
-            this.bookName.Width = 140;
             this.bookName.ReadOnly = true;
+            this.bookName.Width = 140;
             // 
             // dateOfBorrow
             // 
             this.dateOfBorrow.HeaderText = "Date of Borrow";
             this.dateOfBorrow.Name = "dateOfBorrow";
-            this.dateOfBorrow.Width = 110;
             this.dateOfBorrow.ReadOnly = true;
+            this.dateOfBorrow.Width = 110;
             // 
             // noOfBooksBorrowed
             // 
             this.noOfBooksBorrowed.HeaderText = "Numbers";
             this.noOfBooksBorrowed.Name = "noOfBooksBorrowed";
-            this.noOfBooksBorrowed.Width = 60;
             this.noOfBooksBorrowed.ReadOnly = true;
+            this.noOfBooksBorrowed.Width = 60;
             // 
             // label5
             // 
@@ -234,11 +236,35 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 14;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.logoutButton.Location = new System.Drawing.Point(713, 12);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 15;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // Lend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.borrowerNameComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridViewBorrower);
@@ -253,6 +279,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Lend";
             this.Text = "Lend";
             this.Load += new System.EventHandler(this.Lend_Load);
@@ -287,5 +315,7 @@
         private System.Windows.Forms.ComboBox borrowerNameComboBox;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

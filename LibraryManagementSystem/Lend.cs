@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystem;
+using System;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
@@ -11,6 +12,8 @@ namespace LMS
         SqlConnection cn;
         SqlCommand cmd;
         SqlDataReader dr;
+
+        General general = new General();
 
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
         public Lend()
@@ -153,6 +156,18 @@ namespace LMS
                 e.Cancel = false;
                 errorProvider1.SetError(noOfBooksTextBox, "");
             }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            general.logout(this);
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.ShowDialog();
         }
     }
 }
