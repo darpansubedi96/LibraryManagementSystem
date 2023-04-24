@@ -709,7 +709,6 @@
     <None Include="DatabaseDataSet.xss">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </None>
-    <None Include="LibraryManagementSystem_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\AddBooks.datasource" />
     <None Include="Properties\DataSources\DatabaseDataSet.BooksDataTable.datasource" />

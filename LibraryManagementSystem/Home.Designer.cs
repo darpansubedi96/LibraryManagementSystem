@@ -36,7 +36,6 @@
             this.lendButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.memberButton = new System.Windows.Forms.Button();
-            this.dateAndTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,23 +124,11 @@
             this.memberButton.UseVisualStyleBackColor = true;
             this.memberButton.Click += new System.EventHandler(this.memberButton_Click);
             // 
-            // dateAndTime
-            // 
-            this.dateAndTime.AutoSize = true;
-            this.dateAndTime.Font = new System.Drawing.Font("MS UI Gothic", 11F);
-            this.dateAndTime.Location = new System.Drawing.Point(632, 73);
-            this.dateAndTime.Name = "dateAndTime";
-            this.dateAndTime.Size = new System.Drawing.Size(100, 15);
-            this.dateAndTime.TabIndex = 11;
-            this.dateAndTime.Text = "Date and Time";
-            this.dateAndTime.Click += new System.EventHandler(this.dateAndTime_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateAndTime);
             this.Controls.Add(this.memberButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.lendButton);
@@ -154,8 +141,6 @@
             this.MinimizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,6 +157,5 @@
         private System.Windows.Forms.Button lendButton;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button memberButton;
-        private System.Windows.Forms.Label dateAndTime;
     }
 }

@@ -34,7 +34,10 @@ namespace LibraryManagementSystem
                         cmd.Parameters.AddWithValue("username", regUsernameTextBox.Text);
                         cmd.Parameters.AddWithValue("password", regPasswordTextBox.Text);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Your Account is created. Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);;
+                        MessageBox.Show("Your Account is created. Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        Login login = new Login();
+                        login.Show();
                     }
                 }
                 else

@@ -54,10 +54,5 @@ namespace LibraryManagementSystem
             Registration registration = new Registration();
             registration.ShowDialog();
         }
-
-        private void dateAndTime_Click(object sender, EventArgs e)
-        {
-            this.dateAndTime.Text = DateTime.Now.ToString("f");
-        }
     }
 }

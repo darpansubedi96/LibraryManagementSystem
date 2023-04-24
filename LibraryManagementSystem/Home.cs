@@ -1,5 +1,6 @@
 ﻿using LMS;
 using System;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
@@ -51,9 +52,5 @@ namespace LibraryManagementSystem
             membership.ShowDialog();
         }
 
-        private void dateAndTime_Click(object sender, EventArgs e)
-        {
-            this.dateAndTime.Text = DateTime.Now.ToString("f");
-        }
     }
 }
