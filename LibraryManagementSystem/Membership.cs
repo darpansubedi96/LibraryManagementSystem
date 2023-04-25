@@ -68,10 +68,13 @@ namespace LMS
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Member data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    this.Close();
-                    Membership main = new Membership();
-                    main.Show();
-                    
+                    general.ClearAll(this);
+
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    loadMemberShipData();
+
+
                 }
 
             }
@@ -115,6 +118,11 @@ namespace LMS
 
         private void Membership_Load(object sender, EventArgs e)
         {
+            loadMemberShipData();
+        }
+
+        private void loadMemberShipData()
+        {
             conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand comm = new SqlCommand("Select * From Member m order by name", conn);
@@ -132,7 +140,6 @@ namespace LMS
                 }
             }
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string columnName = this.dataGridView1.Columns[e.ColumnIndex].Name;
@@ -159,6 +166,10 @@ namespace LMS
                 {
                     UpdateMember update = new UpdateMember() { id = id };
                     update.ShowDialog();
+
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    loadMemberShipData();
                 }
                 else
                 {

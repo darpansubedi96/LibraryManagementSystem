@@ -26,19 +26,7 @@ namespace LMS
 
         private void Genres_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(connectionString);
-            cn.Open();
-            cmd = new SqlCommand("Select * From Genres g  ORDER BY g.name", cn);
-            using (rdr = cmd.ExecuteReader())
-            {
-                while (rdr.Read())
-                {
-                    dataGridView1.Rows.Add(new object[] {
-                        rdr.GetValue(0),
-                        rdr.GetValue(1)
-                    });
-                }
-            }
+            Genres_Load();
         }
 
         private void addGenresButton_Click(object sender, EventArgs e)
@@ -65,9 +53,27 @@ namespace LMS
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Genra saved succssfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    dataGridView1.Update();
-                    dataGridView1.Refresh();
                     general.ClearAll(this);
+                    Genres_Load();
+                }
+            }
+        }
+
+        private void Genres_Load()
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            cn = new SqlConnection(connectionString);
+            cn.Open();
+            cmd = new SqlCommand("Select * From Genres g  ORDER BY g.name", cn);
+            using (rdr = cmd.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    dataGridView1.Rows.Add(new object[] {
+                        rdr.GetValue(0),
+                        rdr.GetValue(1)
+                    });
                 }
             }
         }

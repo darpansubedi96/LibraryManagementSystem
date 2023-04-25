@@ -48,7 +48,7 @@ namespace LibraryManagementSystem
             membership.ShowDialog();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void logoutButton_Click(object sender, EventArgs e)
         {
             general.logout(this);
         }

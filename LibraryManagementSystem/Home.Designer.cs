@@ -35,7 +35,9 @@
             this.returnButton = new System.Windows.Forms.Button();
             this.memberButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoutButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
             this.SuspendLayout();
             // 
             // lms
@@ -106,17 +108,30 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LMS.Properties.Resources.pngaaa_com_58333;
-            this.pictureBox1.Location = new System.Drawing.Point(464, 178);
+            this.pictureBox1.Location = new System.Drawing.Point(448, 137);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(340, 301);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Image = global::LMS.Properties.Resources.clipart1411375;
+            this.logoutButton.Location = new System.Drawing.Point(763, 12);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(25, 23);
+            this.logoutButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutButton.TabIndex = 22;
+            this.logoutButton.TabStop = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.memberButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.lendButton);
@@ -129,6 +144,7 @@
             this.Name = "Home";
             this.Text = "Home";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +159,6 @@
         private System.Windows.Forms.Button lendButton;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button memberButton;
+        private System.Windows.Forms.PictureBox logoutButton;
     }
 }

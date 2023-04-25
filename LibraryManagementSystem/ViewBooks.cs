@@ -18,6 +18,11 @@ namespace LibraryManagementSystem
 
         private void ViewBooks_Load(object sender, EventArgs e)
         {
+            loadViewData();
+        }
+
+        private void loadViewData()
+        {
             cn = new SqlConnection(connectionString);
             cn.Open();
             SqlCommand comm = new SqlCommand("Select * From Books b  ORDER BY b.name", cn);
@@ -35,7 +40,6 @@ namespace LibraryManagementSystem
                 }
             }
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string columnName = this.dataGridView1.Columns[e.ColumnIndex].Name;
@@ -62,6 +66,11 @@ namespace LibraryManagementSystem
                 {
                     Update update = new Update() {id = id};
                     update.ShowDialog();
+
+
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    loadViewData();
                 }
             }
             else

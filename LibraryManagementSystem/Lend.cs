@@ -67,7 +67,10 @@ namespace LMS
                         cmd.ExecuteNonQuery();
                         countOperation(requiredBookName, availableNoOfBooks, requiredNoOfBooksInt);
                         MessageBox.Show("Book borrowed successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+
+                        dataGridViewBorrower.Rows.Clear();
+                        dataGridViewBorrower.Refresh();
+                        loadLendData();
                     }
                     else
                     {
@@ -97,6 +100,13 @@ namespace LMS
 
         private void Lend_Load(object sender, EventArgs e)
         {
+            loadLendData();
+            BindMemberName();
+            BindData();
+        }
+
+        private void loadLendData()
+        {
             cn = new SqlConnection(connectionString);
             cn.Open();
             SqlCommand comm = new SqlCommand("Select * From Lend b", cn);
@@ -113,8 +123,6 @@ namespace LMS
                     });
                 }
             }
-            BindMemberName();
-            BindData();
         }
 
         public void BindData()

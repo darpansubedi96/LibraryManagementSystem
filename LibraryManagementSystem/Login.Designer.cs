@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.titleLable = new System.Windows.Forms.Label();
             this.enterUPLable = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.loginPicture = new System.Windows.Forms.PictureBox();
             this.usernameLable = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.registerText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLable
@@ -72,17 +71,6 @@
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // loginPicture
-            // 
-            this.loginPicture.ErrorImage = ((System.Drawing.Image)(resources.GetObject("loginPicture.ErrorImage")));
-            this.loginPicture.Image = ((System.Drawing.Image)(resources.GetObject("loginPicture.Image")));
-            this.loginPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("loginPicture.InitialImage")));
-            this.loginPicture.Location = new System.Drawing.Point(464, 178);
-            this.loginPicture.Name = "loginPicture";
-            this.loginPicture.Size = new System.Drawing.Size(400, 426);
-            this.loginPicture.TabIndex = 3;
-            this.loginPicture.TabStop = false;
             // 
             // usernameLable
             // 
@@ -141,19 +129,29 @@
             this.registerText.TabIndex = 9;
             this.registerText.Text = "If you don\'t have an account?";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LMS.Properties.Resources.pngaaa_com_58333;
+            this.pictureBox1.Location = new System.Drawing.Point(448, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(340, 301);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.registerText);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.usernameTextbox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLable);
-            this.Controls.Add(this.loginPicture);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.enterUPLable);
             this.Controls.Add(this.titleLable);
@@ -163,7 +161,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "LMS";
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,13 +172,13 @@
         private System.Windows.Forms.Label titleLable;
         private System.Windows.Forms.Label enterUPLable;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.PictureBox loginPicture;
         private System.Windows.Forms.Label usernameLable;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox usernameTextbox;
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Label registerText;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
