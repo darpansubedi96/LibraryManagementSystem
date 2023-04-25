@@ -171,19 +171,6 @@ namespace LMS
                 MessageBox.Show("You can't delete or update this field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            general.logout(this);
-        }
-
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Home home = new Home();
-            home.ShowDialog();
-        }
-
         private void PhoneNoTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!Regex.IsMatch(PhoneNoTextBox.Text, @"^\d+"))
@@ -209,12 +196,24 @@ namespace LMS
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
-
-        private void refreshButton_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
             Membership membership = new Membership();
             membership.Show();
+        }
+
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.ShowDialog();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            general.logout(this);
         }
     }
 }

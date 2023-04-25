@@ -31,9 +31,8 @@ namespace LibraryManagementSystem
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.backButton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewBooks));
             this.lms = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,20 +41,14 @@ namespace LibraryManagementSystem
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.refreshButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.PictureBox();
+            this.logoutButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backButton
-            // 
-            this.backButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 0;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // lms
             // 
@@ -66,17 +59,6 @@ namespace LibraryManagementSystem
             this.lms.Size = new System.Drawing.Size(353, 31);
             this.lms.TabIndex = 1;
             this.lms.Text = "Library Management System";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.logoutButton.Location = new System.Drawing.Point(713, 12);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 8;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // dataGridView1
             // 
@@ -156,47 +138,66 @@ namespace LibraryManagementSystem
             this.delete.UseColumnTextForButtonValue = true;
             this.delete.Width = 90;
             // 
-            // refreshButton
+            // backButton
             // 
-            this.refreshButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.refreshButton.Location = new System.Drawing.Point(632, 12);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 10;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.backButton.Image = global::LMS.Properties.Resources.pngegg;
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(22, 23);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 22;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Image = global::LMS.Properties.Resources.clipart1411375;
+            this.logoutButton.Location = new System.Drawing.Point(763, 12);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(25, 23);
+            this.logoutButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutButton.TabIndex = 21;
+            this.logoutButton.TabStop = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(734, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ViewBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.refreshButton);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.logoutButton);
-            this.Controls.Add(this.lms);
             this.Controls.Add(this.backButton);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lms);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewBooks";
             this.Text = "View Books";
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.ViewBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label lms;
-        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
@@ -204,5 +205,8 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewButtonColumn update;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoutButton;
+        private System.Windows.Forms.PictureBox backButton;
     }
 }

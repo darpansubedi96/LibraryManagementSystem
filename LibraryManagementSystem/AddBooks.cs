@@ -27,11 +27,6 @@ namespace LibraryManagementSystem
             home.ShowDialog();
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            general.logout(this);
-        }
-
         private void saveBook_Click(object sender, EventArgs e)
         {
 
@@ -93,6 +88,7 @@ namespace LibraryManagementSystem
         {
             cn = new SqlConnection(connectionString);
             cn.Open();
+            genreNames();
         }
 
         private void bookCountTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -108,6 +104,37 @@ namespace LibraryManagementSystem
                 e.Cancel = false;
                 errorProvider1.SetError(bookCountTextBox, "");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Genres genres = new Genres();
+            genres.Show();
+        }
+
+        private void genreNames()
+        {
+            string query = "Select name from Genres order by name";
+            cmd = new SqlCommand(query, cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                bookCategoryDropDown.Items.Add(dr[0]);
+            }
+            dr.Close();
+
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            general.logout(this);
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.ShowDialog();
         }
     }
 }

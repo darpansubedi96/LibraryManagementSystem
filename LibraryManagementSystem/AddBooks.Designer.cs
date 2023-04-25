@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.backButton = new System.Windows.Forms.Button();
             this.lms = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bookName = new System.Windows.Forms.Label();
             this.bookAuthor = new System.Windows.Forms.Label();
@@ -43,19 +41,13 @@
             this.bookCategoryDropDown = new System.Windows.Forms.ComboBox();
             this.saveBook = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.PictureBox();
+            this.backButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backButton
-            // 
-            this.backButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 1;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click_1);
             // 
             // lms
             // 
@@ -66,17 +58,6 @@
             this.lms.Size = new System.Drawing.Size(353, 31);
             this.lms.TabIndex = 2;
             this.lms.Text = "Library Management System";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.logoutButton.Location = new System.Drawing.Point(713, 12);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 8;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // label1
             // 
@@ -155,22 +136,8 @@
             // 
             // bookCategoryDropDown
             // 
-            this.bookCategoryDropDown.DisplayMember = "A";
             this.bookCategoryDropDown.Font = new System.Drawing.Font("MS UI Gothic", 11F);
             this.bookCategoryDropDown.FormattingEnabled = true;
-            this.bookCategoryDropDown.Items.AddRange(new object[] {
-            "Adventure stories",
-            "Biography",
-            "Classics",
-            "Crime",
-            "Fantasy",
-            "Horror",
-            "Poetry",
-            "Plays",
-            "Science fiction",
-            "Thrillers",
-            "War",
-            "Non-fiction"});
             this.bookCategoryDropDown.Location = new System.Drawing.Point(209, 222);
             this.bookCategoryDropDown.Name = "bookCategoryDropDown";
             this.bookCategoryDropDown.Size = new System.Drawing.Size(278, 23);
@@ -192,11 +159,46 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(713, 78);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 48);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Add Category";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Image = global::LMS.Properties.Resources.clipart1411375;
+            this.logoutButton.Location = new System.Drawing.Point(763, 12);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(25, 23);
+            this.logoutButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutButton.TabIndex = 22;
+            this.logoutButton.TabStop = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.Image = global::LMS.Properties.Resources.pngegg;
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(22, 23);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 23;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.saveBook);
             this.Controls.Add(this.bookCategoryDropDown);
             this.Controls.Add(this.bookCountTextBox);
@@ -207,26 +209,22 @@
             this.Controls.Add(this.bookAuthor);
             this.Controls.Add(this.bookName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.lms);
-            this.Controls.Add(this.backButton);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddBooks";
             this.Text = "AddBooks";
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Load += new System.EventHandler(this.AddBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
-
-        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label lms;
-        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label bookName;
         private System.Windows.Forms.Label bookAuthor;
@@ -238,5 +236,8 @@
         private System.Windows.Forms.ComboBox bookCategoryDropDown;
         private System.Windows.Forms.Button saveBook;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox logoutButton;
+        private System.Windows.Forms.PictureBox backButton;
     }
 }

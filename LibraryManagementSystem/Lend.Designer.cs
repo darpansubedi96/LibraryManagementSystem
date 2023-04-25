@@ -50,11 +50,13 @@
             this.borrowerNameComboBox = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.backButton = new System.Windows.Forms.Button();
-            this.logoutButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.PictureBox();
+            this.backButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -236,35 +238,35 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // backButton
-            // 
-            this.backButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 14;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
             // logoutButton
             // 
-            this.logoutButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.logoutButton.Location = new System.Drawing.Point(713, 12);
+            this.logoutButton.Image = global::LMS.Properties.Resources.clipart1411375;
+            this.logoutButton.Location = new System.Drawing.Point(763, 12);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 15;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Size = new System.Drawing.Size(25, 23);
+            this.logoutButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutButton.TabIndex = 22;
+            this.logoutButton.TabStop = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.Image = global::LMS.Properties.Resources.pngegg;
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(22, 23);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 24;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // Lend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.backButton);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.borrowerNameComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridViewBorrower);
@@ -287,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,7 +319,7 @@
         private System.Windows.Forms.ComboBox borrowerNameComboBox;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.PictureBox logoutButton;
+        private System.Windows.Forms.PictureBox backButton;
     }
 }

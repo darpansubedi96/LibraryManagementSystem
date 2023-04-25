@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.lms = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addBooks = new System.Windows.Forms.Button();
             this.viewBooks = new System.Windows.Forms.Button();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.lendButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.memberButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,15 +47,6 @@
             this.lms.Size = new System.Drawing.Size(353, 31);
             this.lms.TabIndex = 0;
             this.lms.Text = "Library Management System";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LMS.Properties.Resources.pngaaa_com_58333;
-            this.pictureBox1.Location = new System.Drawing.Point(464, 178);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 426);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // addBooks
             // 
@@ -79,17 +69,6 @@
             this.viewBooks.Text = "View Books";
             this.viewBooks.UseVisualStyleBackColor = true;
             this.viewBooks.Click += new System.EventHandler(this.viewBooks_Click);
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.logoutButton.Location = new System.Drawing.Point(713, 12);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 7;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // lendButton
             // 
@@ -124,6 +103,15 @@
             this.memberButton.UseVisualStyleBackColor = true;
             this.memberButton.Click += new System.EventHandler(this.memberButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LMS.Properties.Resources.pngaaa_com_58333;
+            this.pictureBox1.Location = new System.Drawing.Point(464, 178);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 426);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -132,7 +120,6 @@
             this.Controls.Add(this.memberButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.lendButton);
-            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.viewBooks);
             this.Controls.Add(this.addBooks);
             this.Controls.Add(this.pictureBox1);
@@ -153,7 +140,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button addBooks;
         private System.Windows.Forms.Button viewBooks;
-        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button lendButton;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button memberButton;

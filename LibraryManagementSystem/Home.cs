@@ -27,10 +27,6 @@ namespace LibraryManagementSystem
             viewbooks.ShowDialog();
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            general.logout(this);
-        }
 
         private void lendButton_Click(object sender, EventArgs e)
         {
@@ -52,5 +48,9 @@ namespace LibraryManagementSystem
             membership.ShowDialog();
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            general.logout(this);
+        }
     }
 }

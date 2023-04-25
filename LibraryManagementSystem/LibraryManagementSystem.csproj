@@ -587,6 +587,12 @@
     <Compile Include="AddBooks.Designer.cs">
       <DependentUpon>AddBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Genres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Genres.Designer.cs">
+      <DependentUpon>Genres.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -657,6 +663,9 @@
     </Compile>
     <EmbeddedResource Include="AddBooks.resx">
       <DependentUpon>AddBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Genres.resx">
+      <DependentUpon>Genres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -755,6 +764,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="favicon.ico" />
+    <None Include="Resources\pngegg.png" />
+    <None Include="Resources\pngwing.com %281%29.png" />
+    <None Include="Resources\clipart1411375.png" />
     <None Include="Resources\pngaaa.com-58333.png" />
   </ItemGroup>
   <ItemGroup>

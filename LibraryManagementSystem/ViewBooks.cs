@@ -16,18 +16,6 @@ namespace LibraryManagementSystem
             InitializeComponent();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Home home = new Home();
-            home.ShowDialog();
-        }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            general.logout(this);
-        }
-
         private void ViewBooks_Load(object sender, EventArgs e)
         {
             cn = new SqlConnection(connectionString);
@@ -82,11 +70,24 @@ namespace LibraryManagementSystem
             }
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
             ViewBooks main = new ViewBooks();
             main.Show();
+        }
+
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+                this.Hide();
+                Home home = new Home();
+                home.ShowDialog();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            general.logout(this);
         }
     }
 }
