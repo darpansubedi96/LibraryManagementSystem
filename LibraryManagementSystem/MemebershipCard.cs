@@ -35,7 +35,7 @@ namespace LMS
                 genderlabel.Text = rdr.GetValue(3).ToString();
                 phonelabel.Text = rdr.GetValue(4).ToString();
                 dateofjoinLabel.Text = rdr.GetValue(6).ToString();
-                
+
                 pictureBox1.Image = null;
                 if (rdr.GetValue(5) != System.DBNull.Value)
                 {

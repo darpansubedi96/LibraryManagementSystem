@@ -32,15 +32,15 @@ namespace LibraryManagementSystem
 
             if (booksNameTextbox.Text == string.Empty || booksAuthorTextBox.Text == string.Empty ||
                 bookCountTextBox.Text == string.Empty || bookCategoryDropDown.SelectedIndex == -1)
-                {
+            {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {       
+            {
                 cmd = new SqlCommand("select * from Books where name = '" + booksNameTextbox.Text + "' and author = '" + booksAuthorTextBox.Text + "'  and category = '" + bookCategoryDropDown.Text + "'", cn);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())  // validate from table
-                    {
+                {
                     dr.Close();
                     MessageBox.Show("Books already exists in Library.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -71,11 +71,11 @@ namespace LibraryManagementSystem
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Book data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     general.ClearAll(this);
-                }  
+                }
             }
         }
 
-            
+
 
         private void registerButton_Click(object sender, EventArgs e)
         {

@@ -1,7 +1,6 @@
 ﻿using LibraryManagementSystem;
 using System;
 using System.Data.SqlClient;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -23,7 +22,7 @@ namespace LMS
 
         private void lendButton_Click(object sender, EventArgs e)
         {
-            
+
             if (borrowerNameComboBox.SelectedIndex == -1 || bookNameComboBox.SelectedIndex == -1 || noOfBooksTextBox.Text == string.Empty)
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,6 +67,7 @@ namespace LMS
                         countOperation(requiredBookName, availableNoOfBooks, requiredNoOfBooksInt);
                         MessageBox.Show("Book borrowed successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        general.ClearAll(this);
                         dataGridViewBorrower.Rows.Clear();
                         dataGridViewBorrower.Refresh();
                         loadLendData();
@@ -82,7 +82,7 @@ namespace LMS
                     MessageBox.Show("Book not available.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            
+
         }
         private void countOperation(string bookName, int bookCount, int noOfBooks)
         {
@@ -94,7 +94,7 @@ namespace LMS
 
             cn = new SqlConnection(connectionString);
             cn.Open();
-            cmd = new SqlCommand("UPDATE Books SET count =" + newBookNumber + " WHERE name ='" + bookName+"';",cn);//update operation
+            cmd = new SqlCommand("UPDATE Books SET count =" + newBookNumber + " WHERE name ='" + bookName + "';", cn);//update operation
             cmd.ExecuteNonQuery();
         }
 

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.IO;
 using System.Drawing;
-using System.Drawing.Imaging;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -64,7 +63,7 @@ namespace LMS
             if (textBox1.Text != string.Empty || textBox2.Text != string.Empty ||
                comboBox1.Text != string.Empty || textBox3.Text != string.Empty)
             {
-                cmd = new SqlCommand("select * from Member where name = '" + textBox1.Text + "' and address = '" + textBox2.Text + "'  and gender = '" + comboBox1.Text + "' and phone = '" + textBox3.Text+"'", cn);
+                cmd = new SqlCommand("select * from Member where name = '" + textBox1.Text + "' and address = '" + textBox2.Text + "'  and gender = '" + comboBox1.Text + "' and phone = '" + textBox3.Text + "'", cn);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())  // validate from table
                 {
@@ -103,7 +102,7 @@ namespace LMS
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
 
         private void textBox3_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {

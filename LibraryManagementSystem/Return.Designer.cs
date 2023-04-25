@@ -203,10 +203,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Return";
-            this.Text = "Return";
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Name = "Return";
+            this.Text = "Return";
             this.Load += new System.EventHandler(this.Return_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

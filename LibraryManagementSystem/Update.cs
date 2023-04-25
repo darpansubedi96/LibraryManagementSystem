@@ -13,12 +13,12 @@ namespace LMS
         SqlDataReader dr;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
         public int id;
-        
+
         public Update()
         {
             InitializeComponent();
         }
-        
+
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -77,7 +77,7 @@ namespace LMS
         {
             cn = new SqlConnection(connectionString);
             cn.Open();
-            SqlCommand comm = new SqlCommand("Select * From Books where id ="+id, cn);
+            SqlCommand comm = new SqlCommand("Select * From Books where id =" + id, cn);
 
             SqlDataReader DR1 = comm.ExecuteReader();
             if (DR1.Read())

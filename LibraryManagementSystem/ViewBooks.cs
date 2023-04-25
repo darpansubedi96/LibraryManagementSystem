@@ -9,7 +9,7 @@ namespace LibraryManagementSystem
     {
         SqlConnection cn;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True";
-        
+
         General general = new General();
         public ViewBooks()
         {
@@ -64,7 +64,7 @@ namespace LibraryManagementSystem
                 }
                 else
                 {
-                    Update update = new Update() {id = id};
+                    Update update = new Update() { id = id };
                     update.ShowDialog();
 
 
@@ -89,9 +89,9 @@ namespace LibraryManagementSystem
 
         private void backButton_Click(object sender, EventArgs e)
         {
-                this.Hide();
-                Home home = new Home();
-                home.ShowDialog();
+            this.Hide();
+            Home home = new Home();
+            home.ShowDialog();
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

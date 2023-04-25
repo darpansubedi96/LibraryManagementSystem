@@ -1,8 +1,8 @@
 ﻿using LibraryManagementSystem;
 using System.Data.SqlClient;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
 
 namespace LMS
 {
@@ -22,7 +22,7 @@ namespace LMS
             }
         }
 
-        public void conv_photo(PictureBox pictureBox1,SqlCommand cmd)
+        public void conv_photo(PictureBox pictureBox1, SqlCommand cmd)
         {
             if (pictureBox1.Image != null)
             {
