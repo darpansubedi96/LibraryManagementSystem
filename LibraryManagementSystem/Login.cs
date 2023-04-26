@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LMS;
+using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -16,7 +17,7 @@ namespace LibraryManagementSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (passwordTextbox.Text != string.Empty || usernameTextbox.Text != string.Empty)
+            if (passwordTextbox.Text != string.Empty && usernameTextbox.Text != string.Empty)
             {
 
                 cmd = new SqlCommand("select * from LoginTable where username='" + usernameTextbox.Text + "' and password='" + passwordTextbox.Text + "'", cn);
@@ -50,9 +51,14 @@ namespace LibraryManagementSystem
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Registration registration = new Registration();
             registration.ShowDialog();
+        }
+
+        private void resetPasswordButton_Click(object sender, EventArgs e)
+        {
+            ResetPassword resetPassword = new ResetPassword();
+            resetPassword.ShowDialog();
         }
     }
 }

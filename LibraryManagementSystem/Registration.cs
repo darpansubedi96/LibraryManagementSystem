@@ -16,7 +16,7 @@ namespace LibraryManagementSystem
 
         private void RegisterNowButton_Click(object sender, EventArgs e)
         {
-            if (regConfirmPasswordtextBox.Text != string.Empty || regPasswordTextBox.Text != string.Empty || regUsernameTextBox.Text != string.Empty)
+            if (regConfirmPasswordtextBox.Text != string.Empty && regPasswordTextBox.Text != string.Empty && regUsernameTextBox.Text != string.Empty)
             {
                 if (regPasswordTextBox.Text == regConfirmPasswordtextBox.Text)
                 {
@@ -36,8 +36,6 @@ namespace LibraryManagementSystem
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your Account is created. Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        Login login = new Login();
-                        login.Show();
                     }
                 }
                 else
@@ -63,5 +61,6 @@ namespace LibraryManagementSystem
             cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\darpan\source\repos\LibraryManagementSystem\LibraryManagementSystem\Database.mdf;Integrated Security=True");
             cn.Open();
         }
+
     }
 }
