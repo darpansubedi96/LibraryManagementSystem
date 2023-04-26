@@ -132,6 +132,10 @@ namespace LMS
             TimeSpan diffOfDates = returnDate.Subtract(borrowedDate);
             int days = diffOfDates.Days;
             int fineDays, fine;
+            if (days<0)
+            {
+                MessageBox.Show("Return date can't be less than borrowd date!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
             if (days <= 7)
             {
                 fine = 0;
