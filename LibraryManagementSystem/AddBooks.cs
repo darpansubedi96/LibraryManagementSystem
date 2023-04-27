@@ -30,8 +30,8 @@ namespace LibraryManagementSystem
         private void saveBook_Click(object sender, EventArgs e)
         {
 
-            if (booksNameTextbox.Text == string.Empty || booksAuthorTextBox.Text == string.Empty ||
-                bookCountTextBox.Text == string.Empty || bookCategoryDropDown.SelectedIndex == -1)
+            if (booksNameTextbox.Text == string.Empty && booksAuthorTextBox.Text == string.Empty &&
+                bookCountTextBox.Text == string.Empty && bookCategoryDropDown.SelectedIndex == -1)
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -23,7 +23,7 @@ namespace LMS
         private void lendButton_Click(object sender, EventArgs e)
         {
 
-            if (borrowerNameComboBox.SelectedIndex == -1 || bookNameComboBox.SelectedIndex == -1 || noOfBooksTextBox.Text == string.Empty)
+            if (borrowerNameComboBox.SelectedIndex == -1 && bookNameComboBox.SelectedIndex == -1 && noOfBooksTextBox.Text == string.Empty)
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

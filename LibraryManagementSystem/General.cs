@@ -22,7 +22,7 @@ namespace LMS
             }
         }
 
-        public void conv_photo(PictureBox pictureBox1, SqlCommand cmd)
+        public void conv_photo(PictureBox pictureBox1, SqlCommand cmd)  //convert image to array
         {
             if (pictureBox1.Image != null)
             {

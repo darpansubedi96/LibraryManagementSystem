@@ -25,8 +25,8 @@ namespace LMS
             cn = new SqlConnection(connectionString);
             cn.Open();
 
-            if (textBox1.Text != string.Empty || textBox2.Text != string.Empty ||
-               comboBox1.Text != string.Empty || textBox3.Text != string.Empty)
+            if (textBox1.Text != string.Empty && textBox2.Text != string.Empty &&
+               comboBox1.Text != string.Empty && textBox3.Text != string.Empty)
             {
                 cmd = new SqlCommand("select * from Books where name = '" + textBox1.Text + "' and author = '" + textBox2.Text + "'  and category = '" + comboBox1.Text + "' and count = " + textBox3.Text, cn);
                 dr = cmd.ExecuteReader();

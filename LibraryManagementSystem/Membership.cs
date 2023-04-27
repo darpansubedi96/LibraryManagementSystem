@@ -26,8 +26,8 @@ namespace LMS
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text != string.Empty || addressTextBox.Text != string.Empty ||
-                genderComboBox.SelectedIndex == -1 || !string.IsNullOrWhiteSpace(PhoneNoTextBox.Text))
+            if (nameTextBox.Text != string.Empty && addressTextBox.Text != string.Empty &&
+                genderComboBox.SelectedIndex == -1 && !string.IsNullOrWhiteSpace(PhoneNoTextBox.Text))
             {
                 cmd = new SqlCommand("select * from Member where name = '" + nameTextBox.Text + "' and address = '" + addressTextBox.Text + "' and gender = '" + genderComboBox.Text + "' and phone = '" + PhoneNoTextBox.Text + "'", conn);
                 rdr = cmd.ExecuteReader();

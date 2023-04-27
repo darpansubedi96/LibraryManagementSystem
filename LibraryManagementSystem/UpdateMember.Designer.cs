@@ -179,10 +179,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "UpdateMember";
-            this.Text = "UpdateMember";
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Name = "UpdateMember";
+            this.Text = "UpdateMember";
             this.Load += new System.EventHandler(this.UpdateMember_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
