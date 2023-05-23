@@ -27,7 +27,7 @@ namespace LMS
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (nameTextBox.Text != string.Empty && addressTextBox.Text != string.Empty &&
-                genderComboBox.SelectedIndex == -1 && !string.IsNullOrWhiteSpace(PhoneNoTextBox.Text))
+                genderComboBox.SelectedIndex != -1 && !string.IsNullOrWhiteSpace(PhoneNoTextBox.Text))
             {
                 cmd = new SqlCommand("select * from Member where name = '" + nameTextBox.Text + "' and address = '" + addressTextBox.Text + "' and gender = '" + genderComboBox.Text + "' and phone = '" + PhoneNoTextBox.Text + "'", conn);
                 rdr = cmd.ExecuteReader();
@@ -53,30 +53,46 @@ namespace LMS
                     }
                     rdr.Close();
 
-                    conn = new SqlConnection(connectionString);
-                    conn.Open();
-                    cmd = new SqlCommand("INSERT INTO Member (name, address, gender, phone, image, dateOfJoin) VALUES(@memberName, @memberAddress, @memberGender, @memberPhoneNumber, @image, @dateOfJoin);", conn);
+                    if(pictureBox1.Image == null)
+                    {
+                        conn = new SqlConnection(connectionString);
+                        conn.Open();
+                        cmd = new SqlCommand("INSERT INTO Member (name, address, gender, phone, dateOfJoin) VALUES(@memberName, @memberAddress, @memberGender, @memberPhoneNumber, @dateOfJoin);", conn);
 
-                    conv_photo();
+                        currentdate();
 
-                    currentdate();
+                        cmd.Parameters.AddWithValue("memberName", nameTextBox.Text);
+                        cmd.Parameters.AddWithValue("memberAddress", addressTextBox.Text);
+                        cmd.Parameters.AddWithValue("memberGender", genderComboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("memberPhoneNumber", PhoneNoTextBox.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Member data saved without image.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        conn = new SqlConnection(connectionString);
+                        conn.Open();
+                        cmd = new SqlCommand("INSERT INTO Member (name, address, gender, phone, image, dateOfJoin) VALUES(@memberName, @memberAddress, @memberGender, @memberPhoneNumber, @image, @dateOfJoin);", conn);
 
-                    cmd.Parameters.AddWithValue("memberName", nameTextBox.Text);
-                    cmd.Parameters.AddWithValue("memberAddress", addressTextBox.Text);
-                    cmd.Parameters.AddWithValue("memberGender", genderComboBox.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("memberPhoneNumber", PhoneNoTextBox.Text);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Member data saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conv_photo();
 
+                        currentdate();
+
+                        cmd.Parameters.AddWithValue("memberName", nameTextBox.Text);
+                        cmd.Parameters.AddWithValue("memberAddress", addressTextBox.Text);
+                        cmd.Parameters.AddWithValue("memberGender", genderComboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("memberPhoneNumber", PhoneNoTextBox.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Member data saved with image.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                     general.ClearAll(this);
 
                     dataGridView1.Rows.Clear();
                     dataGridView1.Refresh();
                     loadMemberShipData();
 
-
                 }
-
             }
             else
             {
@@ -218,7 +234,7 @@ namespace LMS
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home home = new Home();
+            AdminHome home = new AdminHome();
             home.ShowDialog();
         }
 

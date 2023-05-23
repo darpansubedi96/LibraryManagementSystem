@@ -17,7 +17,7 @@ namespace LMS
             if (result == DialogResult.Yes)
             {
                 control.Hide();
-                Login login = new Login();
+                AdminLogin login = new AdminLogin();
                 login.Show();
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem
 {
-    partial class Home
+    partial class AdminHome
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,8 @@
             this.memberButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logoutButton = new System.Windows.Forms.PictureBox();
+            this.memberAccountBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +99,7 @@
             // memberButton
             // 
             this.memberButton.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberButton.Location = new System.Drawing.Point(125, 370);
+            this.memberButton.Location = new System.Drawing.Point(115, 305);
             this.memberButton.Name = "memberButton";
             this.memberButton.Size = new System.Drawing.Size(173, 39);
             this.memberButton.TabIndex = 10;
@@ -126,11 +128,34 @@
             this.logoutButton.TabStop = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // Home
+            // memberAccountBtn
+            // 
+            this.memberAccountBtn.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.memberAccountBtn.Location = new System.Drawing.Point(138, 406);
+            this.memberAccountBtn.Name = "memberAccountBtn";
+            this.memberAccountBtn.Size = new System.Drawing.Size(139, 23);
+            this.memberAccountBtn.TabIndex = 24;
+            this.memberAccountBtn.Text = "MemberAccount";
+            this.memberAccountBtn.UseVisualStyleBackColor = true;
+            this.memberAccountBtn.Click += new System.EventHandler(this.studentAccountBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+            this.label2.Location = new System.Drawing.Point(125, 378);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 15);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Create member account:";
+            // 
+            // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.memberAccountBtn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.memberButton);
             this.Controls.Add(this.returnButton);
@@ -141,7 +166,7 @@
             this.Controls.Add(this.lms);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Home";
+            this.Name = "AdminHome";
             this.Text = "Home";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoutButton)).EndInit();
@@ -160,5 +185,7 @@
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button memberButton;
         private System.Windows.Forms.PictureBox logoutButton;
+        private System.Windows.Forms.Button memberAccountBtn;
+        private System.Windows.Forms.Label label2;
     }
 }

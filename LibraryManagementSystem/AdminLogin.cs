@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
-    public partial class Login : Form
+    public partial class AdminLogin : Form
     {
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
-        public Login()
+        public AdminLogin()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace LibraryManagementSystem
                 {
                     dr.Close();
                     this.Hide();
-                    Home home = new Home();
+                    AdminHome home = new AdminHome();
                     home.ShowDialog();
                 }
                 else
@@ -59,6 +59,13 @@ namespace LibraryManagementSystem
         {
             ResetPassword resetPassword = new ResetPassword();
             resetPassword.ShowDialog();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main = new Main();
+            main.ShowDialog();
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
-    public partial class Home : Form
+    public partial class AdminHome : Form
     {
         General general = new General();
-        public Home()
+        public AdminHome()
         {
             InitializeComponent();
         }
@@ -50,6 +50,12 @@ namespace LibraryManagementSystem
         private void logoutButton_Click(object sender, EventArgs e)
         {
             general.logout(this);
+        }
+
+        private void studentAccountBtn_Click(object sender, EventArgs e)
+        {
+            MemberRegistration studentRegistration = new MemberRegistration();
+            studentRegistration.ShowDialog();
         }
     }
 }

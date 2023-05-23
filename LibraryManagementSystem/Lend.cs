@@ -174,7 +174,7 @@ namespace LMS
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home home = new Home();
+            AdminHome home = new AdminHome();
             home.ShowDialog();
         }
     }

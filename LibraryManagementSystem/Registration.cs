@@ -52,7 +52,7 @@ namespace LibraryManagementSystem
         private void loginBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login login = new Login();
+            AdminLogin login = new AdminLogin();
             login.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem
 {
-    partial class Login
+    partial class AdminLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.resetPasswordButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.backButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLable
@@ -113,7 +115,7 @@
             // registerButton
             // 
             this.registerButton.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.registerButton.Location = new System.Drawing.Point(141, 380);
+            this.registerButton.Location = new System.Drawing.Point(141, 383);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 26);
             this.registerButton.TabIndex = 8;
@@ -125,7 +127,7 @@
             // 
             this.registerText.AutoSize = true;
             this.registerText.Font = new System.Drawing.Font("MS UI Gothic", 11F);
-            this.registerText.Location = new System.Drawing.Point(104, 362);
+            this.registerText.Location = new System.Drawing.Point(104, 352);
             this.registerText.Name = "registerText";
             this.registerText.Size = new System.Drawing.Size(175, 15);
             this.registerText.TabIndex = 9;
@@ -162,12 +164,24 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // Login
+            // backButton
+            // 
+            this.backButton.Image = global::LMS.Properties.Resources.pngegg;
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(22, 23);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 24;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.resetPasswordButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -182,11 +196,12 @@
             this.Controls.Add(this.titleLable);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Login";
+            this.Name = "AdminLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "LMS";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,6 +221,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button resetPasswordButton;
+        private System.Windows.Forms.PictureBox backButton;
     }
 }
 

@@ -23,7 +23,7 @@ namespace LibraryManagementSystem
         private void backButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Home home = new Home();
+            AdminHome home = new AdminHome();
             home.ShowDialog();
         }
 
@@ -133,7 +133,7 @@ namespace LibraryManagementSystem
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home home = new Home();
+            AdminHome home = new AdminHome();
             home.ShowDialog();
         }
     }
